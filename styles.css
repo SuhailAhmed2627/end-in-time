@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+*,
+*:before,
+*:after {
+   font-family: "Roboto", sans-serif;
+   box-sizing: border-box;
+}
+
+body {
+   width: 15rem;
+   background-color: aquamarine;
+   height: 15rem;
+   background: #7f7fd5;
+   background: -webkit-linear-gradient(to bottom, #91eae4, #86a8e7, #7f7fd5);
+   background: linear-gradient(to bottom, #91eae4, #86a8e7, #7f7fd5);
+}
+
+h1 {
+   font-weight: 100;
+   text-align: center;
+}
+
+.container {
+   height: 90%;
+   width: 95%;
+}
+
+.flex-center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.input-field {
+   height: 2rem;
+   gap: 5px;
+   align-items: flex-start;
+}
+
+.input-field > input {
+   height: 2rem;
+   font-size: 1rem;
+   align-self: center;
+   flex-direction: row;
+   gap: 5px;
+   width: 80%;
+   border: none;
+   border-radius: 15px;
+   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.input-field > input:focus {
+   outline: none;
+}
