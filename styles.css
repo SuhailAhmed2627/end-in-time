@@ -34,23 +34,28 @@ h1 {
 }
 
 .input-field {
-   height: 2rem;
    gap: 5px;
    align-items: flex-start;
 }
 
-.input-field > input {
+.time > input,
+.time > select {
+   background-color: rgb(245, 245, 245);
    height: 2rem;
+   width: 20%;
    font-size: 1rem;
    align-self: center;
-   flex-direction: row;
    gap: 5px;
-   width: 80%;
+   padding-left: 5px;
    border: none;
-   border-radius: 15px;
+   border-radius: 5px;
    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
 }
 
-.input-field > input:focus {
+.time > select {
+   width: 25%;
+}
+
+.time > input:focus, .time > select:focus {
    outline: none;
 }
