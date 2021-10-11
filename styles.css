@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
 *,
 *:before,
 *:after {
@@ -7,13 +7,20 @@
    box-sizing: border-box;
 }
 
+h1 {
+   font-family: "Open Sans", sans-serif;
+   font-weight: 600;
+   letter-spacing: 3px;
+}
+
 body {
+   color: white;
    width: 15rem;
    background-color: aquamarine;
    height: 15rem;
-   background: #7f7fd5;
-   background: -webkit-linear-gradient(to bottom, #91eae4, #86a8e7, #7f7fd5);
-   background: linear-gradient(to bottom, #91eae4, #86a8e7, #7f7fd5);
+   background: -webkit-linear-gradient(360deg, #00537e 10%, #3aa17e);
+   background: linear-gradient(360deg, #00537e 10%, #3aa17e);
+   border: 5px solid rgba(172, 172, 172, 0.274);
 }
 
 h1 {
@@ -39,7 +46,8 @@ h1 {
 }
 
 .time > input,
-.time > select {
+.time > select,
+button {
    background-color: rgb(245, 245, 245);
    height: 2rem;
    width: 20%;
@@ -52,10 +60,20 @@ h1 {
    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
 }
 
+button {
+   align-self: center;
+   transition: 1s ease-in-out linear;
+}
+
+button:hover {
+   transform: scale(1.05);
+}
+
 .time > select {
    width: 25%;
 }
 
-.time > input:focus, .time > select:focus {
+.time > input:focus,
+.time > select:focus {
    outline: none;
 }

@@ -7,7 +7,7 @@
       "service_worker": "background.js"
    },
    "permissions": ["storage", "tabs", "scripting"],
-   "host_permissions": ["https://docs.google.com/forms/*"],
+   "host_permissions": ["https://*/*"],
    "action": {
       "default_popup": "popup.html"
    }

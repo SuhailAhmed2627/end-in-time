@@ -2,7 +2,7 @@ if (timeOuts == undefined) {
    var timeOuts = [];
 }
 
-chrome.storage.sync.get(["endTime"], (result) => {
+chrome.storage.local.get(["endTime"], (result) => {
    if (timeOuts) {
       for (let i = 0; i < timeOuts.length; i++) {
          clearTimeout(timeOuts[i]);
@@ -10,7 +10,7 @@ chrome.storage.sync.get(["endTime"], (result) => {
    }
    const endTime = +result.endTime;
    const submitForm = () => {
-      chrome.storage.sync.set({ endTime: "" });
+      chrome.storage.local.set({ endTime: "" });
       [...document.querySelectorAll('[role="button"]')].forEach((div) => {
          if (
             div.innerHTML.includes(">Submit</span>") &&

@@ -17,7 +17,16 @@ const injectScript = async () => {
          files: ["endInTime.js"],
       });
    });
+   messageDOM.innerText = "Auto Submit Set";
 };
+
+chrome.storage.local.get(["endTime"], (result) => {
+   if (result.endTime == "" || result.endTime == undefined) {
+      return;
+   }
+   const time = new Date(+result.endTime);
+   messageDOM.innerText = `Submit at ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+});
 
 const setEndTime = () => {
    if (hhDOM.value > 12 || mmDOM.value > 59 || ssDOM.value > 59) {
@@ -38,10 +47,17 @@ const setEndTime = () => {
       messageDOM.innerText = "Select Appropriate Time";
       return;
    }
-   chrome.storage.sync.set(
+   chrome.storage.local.set(
       { endTime: JSON.stringify(endTime.getTime()) },
       injectScript
    );
 };
 
-document.getElementById("set").addEventListener("click", setEndTime);
+chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
+   let url = tabs[0].url;
+   if (!url.startsWith("https://docs.google.com/forms")) {
+      messageDOM.innerText = "Not a GForm Page";
+      return;
+   }
+   document.getElementById("set").addEventListener("click", setEndTime);
+});
