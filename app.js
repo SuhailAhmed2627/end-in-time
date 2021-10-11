@@ -20,14 +20,6 @@ const injectScript = async () => {
    messageDOM.innerText = "Auto Submit Set";
 };
 
-chrome.storage.local.get(["endTime"], (result) => {
-   if (result.endTime == "" || result.endTime == undefined) {
-      return;
-   }
-   const time = new Date(+result.endTime);
-   messageDOM.innerText = `Submit at ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
-});
-
 const setEndTime = () => {
    if (hhDOM.value > 12 || mmDOM.value > 59 || ssDOM.value > 59) {
       messageDOM.innerText = "Invalid Time";
@@ -59,5 +51,12 @@ chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
       messageDOM.innerText = "Not a GForm Page";
       return;
    }
+   chrome.storage.local.get(["endTime"], (result) => {
+      if (result.endTime == "" || result.endTime == undefined) {
+         return;
+      }
+      const time = new Date(+result.endTime);
+      messageDOM.innerText = `Submit at ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+   });
    document.getElementById("set").addEventListener("click", setEndTime);
 });
