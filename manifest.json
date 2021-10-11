@@ -6,6 +6,12 @@
    "background": {
       "service_worker": "background.js"
    },
+   "icons": {
+      "16": "Icons/icon16.png",
+      "32": "Icons/icon32.png",
+      "64": "Icons/icon64.png",
+      "128": "Icons/icon128.png"
+   },
    "permissions": ["storage", "tabs", "scripting"],
    "host_permissions": ["https://*/*"],
    "action": {
